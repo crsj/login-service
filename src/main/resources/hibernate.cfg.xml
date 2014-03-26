@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>        
+		<property name="hibernate.connection.url">jdbc:hsqldb:hsql://localhost/testdb</property>        
+		<property name="hibernate.connection.username">SA</property>        
+		
+		<property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>     
+		
+		<!--show & print nice SQL on the stdout-->   
+		<property name="hibernate.show_sql">true</property>        
+		<property name="hibernate.format_sql">true</property>    
+		<property name="hibernate.use_sql_comments">true</property>     
+		
+		<!-- 
+        	create: Drop and re-create the database schema on startup
+        	update: Check the schema and Creates/alter if necessary
+        	validate : Check the mappings in Database,
+        				 will raise exception on invalid mappings 
+        -->
+        <property name="hbm2ddl.auto">create</property>
+
+		<!--use the C3P0 connection pool provider-->
+		<property name="hiberante.c3p0.min_size">5</property>        
+		<property name="hiberante.c3p0.max_size">20</property>        
+		<property name="hiberante.c3p0.timeout">300</property>        
+		<property name="hiberante.c3p0.max_statements">50</property>        
+		<property name="hiberante.c3p0.idle_test_period">3000</property>  
+		
+		<!--mapping resource="com/samples/Message.hbm.xml" /-->
+		<mapping class="com.sample.vo.User" />
+	</session-factory>
+</hibernate-configuration>
