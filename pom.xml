@@ -20,18 +20,22 @@
 			<url>http://repository.jboss.com/maven2/</url>
 		</repository>
 	</repositories>
-	
+
 	<reporting>
-	    <plugins>
-	      <plugin>
-	        <artifactId>maven-pmd-plugin</artifactId>
-	        <version>3.1</version>
-	        <configuration>
-	          <targetJdk>${compileSource}</targetJdk>
-	        </configuration>
-	      </plugin>
-	    </plugins>
-  	</reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>emma-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<targetJdk>${compileSource}</targetJdk>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
 
 	<build>
 		<finalName>login-service</finalName>
@@ -43,7 +47,7 @@
 					<source>${compileSource}</source>
 					<target>${compileSource}</target>
 				</configuration>
-			</plugin>	
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
